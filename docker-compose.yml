@@ -1,0 +1,19 @@
+version: '3.1'
+
+services:
+  db:
+    container_name: sanctum
+    build:
+      context: sanctum
+      dockerfile: Dockerfile # This is relative to the context
+    restart: always
+    ports:
+      - ${HOST_DATABASE_PORT}:8000 # Host:Container
+
+  cummy:
+    container_name: cummy
+    build:
+      context: cbotc
+      dockerfile: Dockerfile # This is relative to the context
+    restart: always
+    
